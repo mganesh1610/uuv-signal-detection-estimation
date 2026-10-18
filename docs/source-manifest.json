@@ -1,0 +1,86 @@
+[
+  {
+    "file": "study1/white_noise_detection.py",
+    "source_relative_path": "Project 1/Submisison file/problem_2_code.py",
+    "source_sha256": "5b5f465b10794575d4a67ed6f6fb89d04d4be274b4ebcbde7eb27fec2df3b9e0",
+    "published_sha256": "9dfaee58990bee4ef297087d98593fc33cd06d054fbc0b1946439fa6d65b7160",
+    "adaptations": [
+      "Omitted original Drive/Colab resource links from public source.",
+      "Resolve the bundled loader locally instead of downloading helper code.",
+      "Accept local MAT paths in the two existing input-loading branches.",
+      "Use local data/study1 paths as dataset defaults."
+    ]
+  },
+  {
+    "file": "study1/roc_analysis.py",
+    "source_relative_path": "Project 1/Submisison file/problem_3_code.py",
+    "source_sha256": "a4574332b943ffa0a699b44c7cce51065653336841304820a7f957bf9e064f06",
+    "published_sha256": "1dc09e29c604e9bcc9d7744b2e5c3247a2abbe0431005c99e0ffdee88166a785",
+    "adaptations": [
+      "Omitted original Drive/Colab resource links from public source.",
+      "Resolve the bundled loader locally instead of downloading helper code.",
+      "Use local data/study1 paths as dataset defaults."
+    ]
+  },
+  {
+    "file": "study1/correlated_noise_detection.py",
+    "source_relative_path": "Project 1/Submisison file/problem_4_code.py",
+    "source_sha256": "2f0d1eaf9942ee48405e12b1abaf630d31862432dedfd0c092ea7eac2ff1c18c",
+    "published_sha256": "641d552ea24d9f874c50e1fc46984a6623649a0cb84b5e3816d63f2c8c0bb585",
+    "adaptations": [
+      "Omitted original Drive/Colab resource links from public source.",
+      "Resolve the bundled loader locally instead of downloading helper code.",
+      "Use local data/study1 paths as dataset defaults."
+    ]
+  },
+  {
+    "file": "study1/waveform_optimization.py",
+    "source_relative_path": "Project 1/Submisison file/problem_5_code.py",
+    "source_sha256": "f510ea571b51252997560a4125419ddab2682671e40324c530296fd97dbb1262",
+    "published_sha256": "6d9d2f5a396e995e9acc9cdc39d6128035084582b0b43b7cbbc822f29f484464",
+    "adaptations": [
+      "Omitted original Drive/Colab resource links from public source.",
+      "Resolve the bundled loader locally instead of downloading helper code.",
+      "Use local data/study1 paths as dataset defaults."
+    ]
+  },
+  {
+    "file": "study1/data_validation.py",
+    "source_relative_path": "Project 1/Submisison file/data_check_code.py",
+    "source_sha256": "20557284025ea745a6f247cffa88ad963190cd153d953779284777c130174e33",
+    "published_sha256": "69c1f412bc244c44a4da954b4dc960b798e20f2a6ac74e0444662d2b62af26d1",
+    "adaptations": [
+      "Omitted original Drive/Colab resource links from public source.",
+      "Resolve the bundled loader locally instead of downloading helper code.",
+      "Use local data/study1 paths as dataset defaults."
+    ]
+  },
+  {
+    "file": "uuv_loader_set34.py",
+    "source_relative_path": "Project 1/Submisison file/uuv_data loader_set 3 and 4_code.py",
+    "source_sha256": "d8e0887fb41eb1aa4b8e75373b480dec240d5a04857e483bb674b05dc49d00d8",
+    "published_sha256": "0cfd31aa354d593eedd02c86fe31cf929a3a77708cbd4756c5540417fc61ae1e",
+    "adaptations": [
+      "Omitted original Drive/Colab resource links from public source.",
+      "Use local data/study1 paths as dataset defaults."
+    ]
+  },
+  {
+    "file": "study2/glrt_mle.py",
+    "source_relative_path": "Project 2/old/Marimuthu_prob2 final old.py",
+    "source_sha256": "8f6f09ff4a2fe0c4bd8b007b68b09ba3d9a77c7918cf024b26483297bd0ad42e",
+    "published_sha256": "e8661d98b9fa59ab729f474a05b61bc24af082a5d69707447d058d4ec0a7eac7",
+    "adaptations": [
+      "Read data and write results in configurable repository-relative directories; numerical code is unchanged."
+    ]
+  },
+  {
+    "file": "study2/jammer_glrt.py",
+    "source_relative_path": "Project 2/old/5 old/marimuthu_prob6.py",
+    "source_sha256": "c0ca2ee275b6e31446de438e03ca669092d1ae3753fd9d2decc7f0c59c798ca5",
+    "published_sha256": "b3c420e07cd112620bb7d239ca022fd277310a327d08f6151b2e349f9360c9ac",
+    "adaptations": [
+      "Read data and write results in configurable repository-relative directories; numerical code is unchanged."
+    ]
+  }
+]

@@ -25,7 +25,7 @@ GLRT scores are model-fit statistics, not calibrated probabilities. The archive 
 
 ## Original code excerpts
 
-These three blocks are copied from the existing study. Context variables, grid definitions and helper functions belong to the missing full scripts.
+These three blocks are copied from the existing study. Full recovered implementations are available in [GLRT/MLE](../study2/glrt_mle.py) and [jammer detection/recovery](../study2/jammer_glrt.py). These are earlier source versions from the author's archive; see [provenance](provenance.md) for the version and data boundaries.
 
 ### GLRT map generation for unknown HFM parameters
 

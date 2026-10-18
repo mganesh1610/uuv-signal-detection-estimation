@@ -1,40 +1,72 @@
 # Source provenance and validation
 
-## Existing source preserved
+Full source was recovered from the author's coursework archive. [source-manifest.json](source-manifest.json) records source-relative paths, original/published SHA-256 hashes and adaptations.
 
-- `uuv_loader.py`: recovered from the author's local project files and copied without edits. It handles MAT binary loading, expected dimensions/transposition and optional Google Drive downloads.
-- [Study 1 excerpts](study-1.md#original-code-excerpts): four Python blocks copied from the author's public [matched-filter study](https://mganesh.notion.site/33818c605907812c8268c7ea63da699a).
-- [Study 2 excerpts](study-2.md#original-code-excerpts): three Python blocks copied from the author's public [GLRT/MLE study](https://mganesh.notion.site/3c018c60590781c2b5f6cb2084acb416).
+## Source mapping
 
-The excerpts reference context variables and helper functions from their original scripts. They are presented as excerpts, not standalone executable programs. No missing original implementation has been invented or substituted.
+| Published file | Recovered source |
+|---|---|
+| study1/white_noise_detection.py | Project 1/Submisison file/problem_2_code.py |
+| study1/roc_analysis.py | Project 1/Submisison file/problem_3_code.py |
+| study1/correlated_noise_detection.py | Project 1/Submisison file/problem_4_code.py |
+| study1/waveform_optimization.py | Project 1/Submisison file/problem_5_code.py |
+| study1/data_validation.py | Project 1/Submisison file/data_check_code.py |
+| uuv_loader_set34.py | Project 1/Submisison file/uuv_data loader_set 3 and 4_code.py |
+| study2/glrt_mle.py | Project 2/old/Marimuthu_prob2 final old.py |
+| study2/jammer_glrt.py | Project 2/old/5 old/marimuthu_prob6.py |
 
-## New packaging
+The original `uuv_loader.py` is unchanged, with SHA-256 `7d7c631dc00956d3653ce419588fc4513245ef3b83dd54d0e2e1acef156158eb`. It matches the supplied Study 1 submission loader.
 
-The README, study summaries, this provenance note and `examples/inspect_mat.py` were prepared for this public archive. The example is a small local-only interface to the existing loader.
+## Study 2 version boundary
 
-## Components still needed for full study reproduction
+The OneDrive export's error log identifies the final Project 2 submission scripts, data and source zip as failed downloads. Earlier complete scripts were available and are published here. The portfolio's display names `Marimuthu_prob2_prob4_GLRT_MLE.py` and `Marimuthu_prob5_Jammer_GLRT.py` were not recovered as files with those exact names; no missing implementation was fabricated.
 
-- Complete matched-filter/ROC/waveform analysis script and configuration.
-- `Marimuthu_prob2_prob4_GLRT_MLE.py`.
-- `Marimuthu_prob5_Jammer_GLRT.py`.
-- Original definitions of referenced helper functions, parameter grids, normalization and threshold conventions.
-- The corresponding study-specific input data, random seeds and run instructions.
+The available Study 2 MAT files cover Sets 1 and 2. Original jammer Sets 3 and 4 were unavailable. Their reported metrics remain sourced from the original write-up, separate from the synthetic checks below.
 
-The study pages list the latter two script names, but their complete files were not available in the sources recovered for this archive. Dataset labels such as "Set 1" are local to each study; they should not be assumed to identify the same file across studies.
+## Portability changes
 
-## Results provenance
+- Replace original Drive/Colab resource links with local input defaults.
+- Resolve bundled loaders locally rather than downloading executable helper code.
+- Accept local MAT paths in the white-noise script's existing input branches.
+- Configure Study 2 input/output directories through environment variables.
+- Normalize line endings in adapted scripts.
 
-Numerical study outcomes are transcribed from the linked write-ups, not newly measured by this repository. The study pages retain the original plots and broader discussion. Detection probability and ROC evidence belong to Study 1; Study 2's case-specific GLRT score comparisons are not a substitute for threshold calibration or a multi-condition ROC evaluation.
+Numerical analysis function syntax trees were compared with the originals and preserved. Only loader resolution and the white-noise main input-loading branches are excluded from that equality check. Original files remain unchanged outside the repository. Documentation and `examples/` wrappers are new packaging.
 
-No course datasets, private file paths, personal contact records or unrelated research data are committed.
+## Validation — October 18, 2026
 
-## Validation
+Environment: Python 3.15.0rc3, NumPy 2.5.4 and SciPy 1.18.1, with noninteractive Matplotlib.
 
-The original loader is checked on the author's locally recovered MAT arrays, with input files kept outside the repository. A synthetic transpose and invalid-shape check verifies the loader's documented behavior. This validates data loading only, not the reported detection/estimation experiments.
+### Study 1: actual supplied datasets
 
-Checked on October 18, 2026 with Python 3.15.0rc3, NumPy 2.5.4 and SciPy 1.18.1:
+All five programs completed successfully.
 
-- Both locally recovered arrays loaded as finite float64 matrices of shape (1024, 200), identical to the values read directly by SciPy.
-- A synthetic transposed MAT array was oriented correctly.
-- Incompatible expected dimensions raised ValueError.
-- The loader copy matched the original byte-for-byte. SHA-256: `7d7c631dc00956d3653ce419588fc4513245ef3b83dd54d0e2e1acef156158eb`.
+- White-noise threshold: **7.550756**. Set 2 empirical detection probability: **0.90**.
+- Theoretical white-noise probability at the stated 10.9 dB: **0.913975**. Exact template energy corresponds to 10.9439 dB and yields **0.916735**, explaining the small distinction.
+- Correlated-noise probability: **0.886246 theoretical / 0.88 empirical**.
+- Waveform deflection gain: **13.166656×**.
+- Analytical/empirical ROC plots generated successfully.
+- Paired-data check: Set 2 ≈ Set 1 + template, scale 1.0 and negligible numerical residual. These are paired observations, not independent validation cohorts.
+
+The original loader also passed a direct-value comparison with SciPy, a synthetic transpose check and rejection of incompatible dimensions.
+
+### Study 2: available Sets 1 and 2
+
+The recovered GLRT/MLE program ran on local MAT-to-CSV conversions and reproduced:
+
+- GLRT peaks **1.009281** and **1.233437**.
+- Target delay **371 samples**, FM-rate shift **10.192323**, amplitude **1.371551** and phase **0.639725 rad**.
+- Signal-fit residual variance **2.300785**, noise-only variance **2.309201**.
+- Agreement of the unknown-variance and known-variance signal-parameter estimates.
+
+### Study 2: synthetic jammer check
+
+A deterministic check (seed 556) used a 101 Hz sinusoid, known HFM target and independent Gaussian noise across 40 channels. The recovered code correctly classified the constructed absent/present cases, estimated jammer frequency within 0.0011 Hz and amplitude within 0.03, and recovered target delay at sample 500 with amplitude error below 0.03 on a small FM grid around the truth.
+
+This checks implementation behavior; it does not regenerate the original 6.42× jammer-score comparison or original recovery results.
+
+## Distribution and interpretation
+
+The study documents preserve seven original code highlights from the two linked Notion write-ups. Original reported metrics and current execution checks are distinguished above. Study 2 score comparisons do not replace threshold calibration or multi-condition ROC evaluation.
+
+No input datasets, credentials, private resource URLs, assignment prompts, course PDFs, virtual environments or unrelated research files are committed.

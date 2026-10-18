@@ -20,7 +20,7 @@ The original page reports additional ROC operating points, energy-to-noise setti
 
 ## Original code excerpts
 
-These four blocks are copied from the existing study. They require variables and helper functions from the original analysis, which is not fully recovered in this archive.
+These four blocks are copied from the existing study. Full implementations, helper functions and parameter defaults are available in [study1/](../study1/).
 
 ### White-noise detector
 
